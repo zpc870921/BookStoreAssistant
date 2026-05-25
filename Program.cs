@@ -85,14 +85,14 @@ namespace bookstoreagent
 
 
             var app = builder.Build();
-            //await using (var scope = app.Services.CreateAsyncScope())
-            //{
-            //    var dbContext = scope.ServiceProvider.GetRequiredService<BookAgentDbContext>();
-            //    var vectorDbClient = scope.ServiceProvider.GetRequiredService<IVectorDbClient>();
+            await using (var scope = app.Services.CreateAsyncScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<BookAgentDbContext>();
+                var vectorDbClient = scope.ServiceProvider.GetRequiredService<IVectorDbClient>();
 
-            //    await dbContext.Database.MigrateAsync();
-            //    await vectorDbClient.CreateDefaultCollection();
-            //}
+                await dbContext.Database.MigrateAsync();
+                await vectorDbClient.CreateDefaultCollection();
+            }
 
 
             // Configure the HTTP request pipeline.

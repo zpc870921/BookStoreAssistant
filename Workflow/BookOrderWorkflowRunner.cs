@@ -37,7 +37,7 @@ namespace bookstoreagent.Workflow
             var now = DateTime.UtcNow;
             foreach (var item in messages.Skip(initMessageCount))
             {
-                conversation.AddMessage(item.AuthorName, item.Role, item.Contents,now);
+                conversation.AddMessage(item.AuthorName, item.Role, item.Contents.Where(x=>x is TextContent txtcontent &&!string.IsNullOrWhiteSpace(txtcontent.Text)).ToList(),now);
                 now = now.AddMilliseconds(1);
             }
             await conversationStore.SaveChangesAsync();
