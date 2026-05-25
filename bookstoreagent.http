@@ -1,0 +1,118 @@
+@BookAgent_HostAddress = http://localhost:5134
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Bot",
+  "author": "Max Kidruk",
+  "genre": "Science fiction",
+  "year": 2012
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Stronghold: Fortress",
+  "author": "Max Kidruk",
+  "genre": "Adventure",
+  "year": 2013
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "New Dark Ages: Colony",
+  "author": "Max Kidruk",
+  "genre": "Science fiction",
+  "year": 2022
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "I See You Are Interested in Darkness",
+  "author": "Ilarion Pavluk",
+  "genre": "Thriller",
+  "year": 2020
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "White Ash",
+  "author": "Ilarion Pavluk",
+  "genre": "Mystery",
+  "year": 2018
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Tanger",
+  "author": "Ilarion Pavluk",
+  "genre": "Drama",
+  "year": 2017
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Cult",
+  "author": "Lubko Deresh",
+  "genre": "Psychological fiction",
+  "year": 2002
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Adoration of the Lizard",
+  "author": "Lubko Deresh",
+  "genre": "Contemporary fiction",
+  "year": 2006
+}
+
+###
+
+POST {{BookAgent_HostAddress}}/api/books
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Temple",
+  "author": "Kostiantyn Ulianov",
+  "genre": "Science fiction, Psychological fiction",
+  "year": 2012
+}
+
+###
