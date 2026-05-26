@@ -9,6 +9,7 @@ namespace bookstoreagent.Infrastructure.EntitiesDConfigurations
         public void Configure(EntityTypeBuilder<Conversation> builder)
         {
             builder.Property(x=>x.Id).ValueGeneratedNever();
+            builder.Property(x => x.AgentSessionState).HasColumnType("json");
             builder.HasMany(x=>x.Messages).WithOne(m=>m.Conversation);
         }
     }

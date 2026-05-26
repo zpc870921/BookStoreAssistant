@@ -1,5 +1,4 @@
 ﻿using Microsoft.Agents.AI;
-using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.Extensions.AI;
 using System.ComponentModel;
 
@@ -30,8 +29,14 @@ namespace bookstoreagent.Workflow.Agents
             {
                  Name=Name,
                  Description= "Collects order details and places a book order for the selected book.",
+                 ChatHistoryProvider = new InMemoryChatHistoryProvider(new InMemoryChatHistoryProviderOptions
+                 {
+                     StateKey = Name
+                 }),
+                 AIContextProviders = [new BookStoreContextProvider()],
                  ChatOptions=new ChatOptions
                  {
+                     Temperature = 0f,
                      Instructions= """
                         You are book shop assistant. You need to help the user to order selected book.
                         Selected BookId is available in prior conversation context after handoff.

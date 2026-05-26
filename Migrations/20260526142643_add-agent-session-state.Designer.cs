@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bookstoreagent.Infrastructure;
 
@@ -11,9 +12,11 @@ using bookstoreagent.Infrastructure;
 namespace bookstoreagent.Migrations
 {
     [DbContext(typeof(BookAgentDbContext))]
-    partial class BookAgentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260526142643_add-agent-session-state")]
+    partial class AddAgentSessionState
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

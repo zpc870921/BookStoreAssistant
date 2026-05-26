@@ -10,6 +10,8 @@ namespace bookstoreagent.Workflow.Entities
         private readonly List<ConversationMessage> _messages = [];
         public IReadOnlyList<ConversationMessage> Messages => _messages.OrderBy(x=>x.CreatedAt).ToList().AsReadOnly();
         public DateTime CreatedAt { get; private set; }
+        public DateTime UpdatedAt { get; private set; }
+        public string? AgentSessionState { get; private set; }
 
         private Conversation()
         {
@@ -20,10 +22,18 @@ namespace bookstoreagent.Workflow.Entities
             Id = id;
             _messages = messages;
             CreatedAt = DateTime.UtcNow;
+            UpdatedAt = CreatedAt;
         }
 
         public void AddMessage(string agent,ChatRole role,IList<AIContent> contents,DateTime createdAt) {
             _messages.Add(new ConversationMessage(this,agent,role,contents,createdAt));
+            UpdatedAt = createdAt;
+        }
+
+        public void SetAgentSessionState(string sessionState, DateTime updatedAt)
+        {
+            AgentSessionState = sessionState;
+            UpdatedAt = updatedAt;
         }
     }
 

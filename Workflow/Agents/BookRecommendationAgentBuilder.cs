@@ -1,7 +1,6 @@
 ﻿using bookstoreagent.Infrastructure;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using OpenAI.Chat;
 using System.ComponentModel;
 
 namespace bookstoreagent.Workflow.Agents
@@ -46,8 +45,14 @@ namespace bookstoreagent.Workflow.Agents
             {
                 Name = Name,
                 Description= "Collects user reading preferences,recommends books",
+                ChatHistoryProvider = new InMemoryChatHistoryProvider(new InMemoryChatHistoryProviderOptions
+                {
+                    StateKey = Name
+                }),
+                AIContextProviders = [new BookStoreContextProvider()],
                 ChatOptions = new Microsoft.Extensions.AI.ChatOptions
                 {
+                    Temperature = 0f,
                     Instructions = """
                     You are a book shop assistant. You need to collection information about person preferences. The information you need to collect one by one :
                     - genre

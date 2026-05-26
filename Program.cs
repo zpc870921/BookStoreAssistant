@@ -64,6 +64,7 @@ namespace bookstoreagent
             builder.Services.AddScoped<IBookOrderService,BookOrderService>();
             builder.Services.AddScoped<OrderBookWorkflowBuilder>();
             builder.Services.AddScoped<BookOrderWorkflowRunner>();
+            builder.Services.AddScoped<AgentSessionStore, EfAgentSessionStore>();
             builder.Services.AddScoped<IConversationStore, DbConversationStore>();
 
             builder.Services.AddDbContext<BookAgentDbContext>(options =>
